@@ -48,10 +48,10 @@
 		.year-header {
 			font-weight: bold;
 			font-size: 30px;
-			/* Increased font size */
 			text-align: center;
 			vertical-align: middle;
-			/* Vertically center the content */
+			background-color: #ffffff;
+			/* Set background to white */
 		}
 
 		.weekend {
@@ -67,25 +67,55 @@
 			color: #555;
 		}
 
-		/* Different colors for each quarter */
-		.q1 {
-			background-color: #e6f7ff;
-			/* Light blue */
+		/* Pastel colors for team rows */
+		.team-row-1 {
+			background-color: #ffe6e6;
+			/* Light red */
 		}
 
-		.q2 {
+		.team-row-2 {
 			background-color: #e6ffe6;
 			/* Light green */
 		}
 
-		.q3 {
-			background-color: #fff5e6;
+		.team-row-3 {
+			background-color: #e6e6ff;
+			/* Light blue */
+		}
+
+		.team-row-4 {
+			background-color: #ffffe6;
+			/* Light yellow */
+		}
+
+		.team-row-5 {
+			background-color: #ffe6ff;
+			/* Light magenta */
+		}
+
+		.team-row-6 {
+			background-color: #e6ffff;
+			/* Light cyan */
+		}
+
+		.team-row-7 {
+			background-color: #f0e6ff;
+			/* Light purple */
+		}
+
+		.team-row-8 {
+			background-color: #fff0e6;
 			/* Light orange */
 		}
 
-		.q4 {
-			background-color: #ffe6f2;
-			/* Light pink */
+		.team-row-9 {
+			background-color: #e6f0ff;
+			/* Light sky blue */
+		}
+
+		.team-row-10 {
+			background-color: #fff;
+			/* Light lime */
 		}
 	</style>
 </head>
@@ -232,21 +262,12 @@
 					}
 				}
 
-				// Quarter colors
-				var quarterClasses = {
-					1: 'q1',
-					2: 'q2',
-					3: 'q3',
-					4: 'q4'
-				};
-				var quarterClass = quarterClasses[quarter];
-
 				// Table title with year and quarter
 				var trTitle = document.createElement("tr");
 				var thTitle = document.createElement("th");
 				thTitle.textContent = "Calendar " + year + " - Q" + quarter;
 				thTitle.colSpan = totalDays;
-				thTitle.className = "year-header " + quarterClass + " merged";
+				thTitle.className = "year-header merged";
 				trTitle.appendChild(thTitle);
 				calendarTable.appendChild(trTitle);
 
@@ -260,7 +281,7 @@
 					var thMonth = document.createElement("th");
 					thMonth.colSpan = daysInMonth;
 					thMonth.textContent = monthNames[month];
-					thMonth.className = "month-header " + quarterClass + " merged";
+					thMonth.className = "month-header merged";
 					trMonth.appendChild(thMonth);
 				}
 				calendarTable.appendChild(trMonth);
@@ -306,9 +327,10 @@
 				}
 				calendarTable.appendChild(trHeader);
 
-				// Add 10 empty rows
+				// Add 10 team rows with pastel colors
 				for (var i = 0; i < 10; i++) {
 					var trRow = document.createElement("tr");
+					trRow.className = "team-row-" + (i + 1);
 
 					for (var j = 0; j < dateArray.length; j++) {
 						var date = dateArray[j];
