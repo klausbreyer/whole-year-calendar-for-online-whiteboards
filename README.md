@@ -1,4 +1,7 @@
-# Quarterly Calendar Generator
+# Whole Year Calendar For Online Whiteboards
+
+
+![Screenshot](screenshot.png)
 
 A simple, client-side quarterly calendar that displays a calendar for a specific year and quarter. The calendar highlights weekends and holidays (including the applicable federal states in Germany) and offers customizable rows with pastel colors for team members or tasks.
 
